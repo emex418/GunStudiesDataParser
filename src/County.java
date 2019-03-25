@@ -1,5 +1,5 @@
 public class County {
-    String state, name, data;
+    String state, name;
     int fips;
     ElectionData electionData;
     EducationData educationData;
@@ -14,7 +14,9 @@ public class County {
 
     private void parseIDData(String data) {
         String[] vars = data.split(",");
-
+        fips = Integer.parseInt(vars[0]);
+        state = vars[1];
+        name = vars[2];
     }
 
 }
