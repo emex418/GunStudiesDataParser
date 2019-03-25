@@ -4,7 +4,6 @@ public class County {
     ElectionData electionData;
     EducationData educationData;
     CrimeData crimeData;
-    //TODO: combine all required info -  make a method return String with the line's needed data
     public County(String electionData, String eduData, String crimeData){
         parseIDData(eduData);
         this.electionData = new ElectionData(electionData);

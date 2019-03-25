@@ -1,4 +1,16 @@
 public class CrimeData {
-    public CrimeData(String data){}
+    //numCrimes is the number of crimes per 100000 people
+    double numCrimes;
+    public CrimeData(String data){
+        parseCrimeData(data);
+    }
 
+    private void parseCrimeData(String data) {
+        String[] vars = data.split(",");
+        numCrimes = Double.parseDouble(vars[3]);
+    }
+
+    public double getNumCrimes() {
+        return numCrimes;
+    }
 }
