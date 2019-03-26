@@ -4,7 +4,9 @@ public class County {
     ElectionData electionData;
     EducationData educationData;
     CrimeData crimeData;
-    public County(String electionData, String eduData, String crimeData){
+    public County(String fips, String name, String state,  String electionData, String eduData, String crimeData){
+        this.fips = Integer.parseInt(fips);
+        this.name = name;
         parseIDData(eduData);
         this.electionData = new ElectionData(electionData);
         this.educationData = new EducationData(eduData);
@@ -13,9 +15,7 @@ public class County {
 
     private void parseIDData(String data) {
         String[] vars = data.split(",");
-        fips = Integer.parseInt(vars[0]);
         state = vars[1];
-        name = vars[2];
     }
 
 }
