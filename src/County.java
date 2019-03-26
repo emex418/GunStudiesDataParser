@@ -7,7 +7,7 @@ public class County {
     public County(String fips, String name, String state,  String electionData, String eduData, String crimeData){
         this.fips = Integer.parseInt(fips);
         this.name = name;
-        this.state = state; 
+        this.state = state;
         this.electionData = new ElectionData(electionData);
         this.educationData = new EducationData(eduData);
         this.crimeData = new CrimeData(crimeData);

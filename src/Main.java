@@ -26,22 +26,29 @@ public class Main {
             String name = vars[vars.length - 2];
             String state = vars[vars.length - 3];
             String eduLine = findEduCounty(fips);
-            String crimeLine = findCrimeCounty(name, state);
+            String crimeLine = findCrimeCounty(crimeFile, name, state);
             counties.add(new County(fips, name, state, electionLine, eduLine, crimeLine));
         }
     }
 
-    private static String findCrimeCounty(String name, String state) {
+    private static String findCrimeCounty(String crimeFile, String name, String state) {
         //loop through each line in crime
         //split
         //if the county name and the state are equal to the inputs return line
-        // else return {0,0,0,0}
-        return "";
+        // else return "0,0,0,0"
+
+        String[] rows = crimeFile.split("\n");
+        for (int i = 0; i < rows.length; i++) {
+            if (rows[i].indexOf(name) != -1 && rows[i].indexOf(state) != -1) {
+                return rows[i];
+            }
+        }
+        return "-1, -1, -1, -1";
     }
 
     private static String findEduCounty(String fips) {
         //see find crime but with fips
-        //else return {0,0,0,0}
+        //else return "0,0,0,0"
         return "";
     }
     //TODO: makes cvs file, runs dataManager with String from CVS files
