@@ -10,10 +10,14 @@ public class Main {
         //create new County object with the inputs of each of these lines
         //add county object to ArrayList
 
-        String electionData = Utils.readFileAsString("data/2016_Presidential_Results.csv");
-        String educationData = Utils.readFileAsString("Education.csv");
-        String crimeData = Utils.readFileAsString("crime_data_w_population_and_crime_rate.csv");
+        String electionData = Utils.readFileAsString("data/2016_Presidential_Results.csv.url");
+        String educationData = Utils.readFileAsString("data/Education.csv.url");
+        String crimeData = Utils.readFileAsString("data/crime_data_w_population_and_crime_rate.csv");
         initializeData(electionData, educationData, crimeData);
+
+        for (int i = 0; i < counties.size(); i++) {
+            Utils.writeDataToFile("parsedResults", counties.get(i).toString());
+        }
 
 
     }
@@ -25,7 +29,7 @@ public class Main {
             String fips = vars[vars.length - 1];
             String name = vars[vars.length - 2];
             String state = vars[vars.length - 3];
-            String eduLine = findEduCounty(fips);
+            String eduLine = findEduCounty(educationFile, fips);
             String crimeLine = findCrimeCounty(crimeFile, name, state);
             counties.add(new County(fips, name, state, electionLine, eduLine, crimeLine));
         }
@@ -46,11 +50,16 @@ public class Main {
         return "-1, -1, -1, -1";
     }
 
-    private static String findEduCounty(String fips) {
+    private static String findEduCounty(String educationFile, String fips) {
         //see find crime but with fips
         //else return "0,0,0,0"
-        return "";
-    }
+        String[] rows = educationFile.split("\n");
+        for (int i = 0; i < rows.length; i++) {
+            if (rows[i].indexOf(fips) != -1) {
+                return rows[i];
+            }
+        }
+        return "-1, -1, -1, -1";    }
     //TODO: makes cvs file, runs dataManager with String from CVS files
     //TODO: run here the County constructors with each line you loop through
 }

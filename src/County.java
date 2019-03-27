@@ -4,13 +4,26 @@ public class County {
     ElectionData electionData;
     EducationData educationData;
     CrimeData crimeData;
-    public County(String fips, String name, String state,  String electionData, String eduData, String crimeData){
+
+    public County(String fips, String name, String state, String electionData, String eduData, String crimeData){
         this.fips = Integer.parseInt(fips);
         this.name = name;
         this.state = state;
         this.electionData = new ElectionData(electionData);
         this.educationData = new EducationData(eduData);
         this.crimeData = new CrimeData(crimeData);
+    }
+
+    @Override
+    public String toString() {
+        return "County{" +
+                "state='" + state + '\'' +
+                ", name='" + name + '\'' +
+                ", fips=" + fips +
+                ", electionData=" + electionData +
+                ", educationData=" + educationData +
+                ", crimeData=" + crimeData +
+                '}';
     }
 
 }
