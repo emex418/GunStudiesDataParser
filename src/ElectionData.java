@@ -10,6 +10,14 @@ public class ElectionData {
         this.gopVotes = (int)Double.parseDouble(vars[2]);
     }
 
+    @Override
+    public String toString() {
+        return "ElectionData{" +
+                "demVotes = " + demVotes +
+                ", gopVotes = " + gopVotes +
+                '}';
+    }
+
     public int getDemVotes() {
         return demVotes;
     }

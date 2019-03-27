@@ -2,7 +2,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class Main {
-    private static ArrayList<County> counties;
+    private static ArrayList<County> counties = new ArrayList<>();
 
     public static void main(String[] args) {
 
@@ -15,23 +15,26 @@ public class Main {
         String crimeData = Utils.readFileAsString("data/crime_data_w_population_and_crime_rate.csv");
         initializeData(electionData, educationData, crimeData);
 
+        String results = "";
         for (int i = 0; i < counties.size(); i++) {
-            Utils.writeDataToFile("parsedResults", counties.get(i).toString());
+           results += counties.get(i).toString() + "\n";
         }
 
+        Utils.writeDataToFile("parsedResults", results);
+        System.out.println(counties.size());
 
     }
 
     public static void initializeData(String electionFile, String educationFile, String crimeFile) {
-        String[] electionLocs = electionFile.split("/n");
-        for (String electionLine : electionLocs) {
-            String[] vars = electionLine.split(",");
-            String fips = vars[vars.length - 1];
+        String[] electionLocs = electionFile.split("\n");
+        for (int i = 3; i < electionLocs.length; i++) {
+            String[] vars = electionLocs[i].split(",");
+            String fips = vars[vars.length - 1].replace ("\"", "");
             String name = vars[vars.length - 2];
             String state = vars[vars.length - 3];
             String eduLine = findEduCounty(educationFile, fips);
             String crimeLine = findCrimeCounty(crimeFile, name, state);
-            counties.add(new County(fips, name, state, electionLine, eduLine, crimeLine));
+            counties.add(new County(fips, name, state, electionLocs[i], eduLine, crimeLine));
         }
     }
 

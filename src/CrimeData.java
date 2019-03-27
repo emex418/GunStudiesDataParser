@@ -10,6 +10,13 @@ public class CrimeData {
         numCrimes = Double.parseDouble(vars[3]);
     }
 
+    @Override
+    public String toString() {
+        return "CrimeData{" +
+                "numCrimes = " + numCrimes +
+                '}';
+    }
+
     public double getNumCrimes() {
         return numCrimes;
     }

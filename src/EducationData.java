@@ -8,6 +8,16 @@ public class EducationData {
         parseEduData(data);
     }
 
+    @Override
+    public String toString() {
+        return "EducationData{" +
+                "noHighSchool = " + noHighSchool +
+                ", highSchool = " + highSchool +
+                ", someCollege = " + someCollege +
+                ", moreCollege = " + moreCollege +
+                '}';
+    }
+
     private void parseEduData(String data) {
         String[] vars = data.split(",");
         int lastIndex = vars.length - 1;
