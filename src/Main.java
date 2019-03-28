@@ -20,8 +20,8 @@ public class Main {
            results += counties.get(i).toString() + "\n";
         }
 
-        Utils.writeDataToFile("parsedResults", results);
-        System.out.println(counties.size());
+        Utils.writeDataToFile("parsedResults.csv", "state, county, fips, democratic votes, gop votes, no high school, high school only, some college, more college, crime rate per 100000\n");
+        Utils.writeDataToFile("parsedResults.csv", results);
 
     }
 

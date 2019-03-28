@@ -10,12 +10,11 @@ public class EducationData {
 
     @Override
     public String toString() {
-        return "EducationData{" +
-                "noHighSchool = " + noHighSchool +
-                ", highSchool = " + highSchool +
-                ", someCollege = " + someCollege +
-                ", moreCollege = " + moreCollege +
-                '}';
+        return noHighSchool +
+                ", " + highSchool +
+                ", " + someCollege +
+                ", " + moreCollege
+                ;
     }
 
     private void parseEduData(String data) {

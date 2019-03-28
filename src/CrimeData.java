@@ -12,9 +12,7 @@ public class CrimeData {
 
     @Override
     public String toString() {
-        return "CrimeData{" +
-                "numCrimes = " + numCrimes +
-                '}';
+        return "" + numCrimes;
     }
 
     public double getNumCrimes() {

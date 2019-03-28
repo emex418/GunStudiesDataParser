@@ -16,14 +16,13 @@ public class County {
 
     @Override
     public String toString() {
-        return "County{" +
-                "state = '" + state + '\'' +
-                ", name = '" + name + '\'' +
-                ", fips = " + fips +
-                ", "+ electionData +
+        return  state +
+                ", " + name +
+                ", " + fips +
+                ", " + electionData +
                 ", " + educationData +
-                ", " + crimeData +
-                '}';
+                ", " + crimeData
+                ;
     }
 
 }

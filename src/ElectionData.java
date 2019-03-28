@@ -12,10 +12,9 @@ public class ElectionData {
 
     @Override
     public String toString() {
-        return "ElectionData{" +
-                "demVotes = " + demVotes +
-                ", gopVotes = " + gopVotes +
-                '}';
+        return demVotes +
+                ", " + gopVotes
+                ;
     }
 
     public int getDemVotes() {

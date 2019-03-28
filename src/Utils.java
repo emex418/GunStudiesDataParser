@@ -1,8 +1,8 @@
 import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.Scanner;
+        import java.io.File;
+        import java.io.FileWriter;
+        import java.io.IOException;
+        import java.util.Scanner;
 
 public class Utils {
     //TODO; convert between strings and files
@@ -33,16 +33,5 @@ public class Utils {
             e.printStackTrace();
         }
     }
-
-    public void saveDataToFile (String file) {
-        String result = "";
-        writeDataToFile(file, result);
-    }
-
-    private static String fixDataIrregularities(String dataArray) {
-        //TODO: fill method
-      return "";
-    }
-    private static void updateFileFromString(String s, String filepath){}
 
 }
